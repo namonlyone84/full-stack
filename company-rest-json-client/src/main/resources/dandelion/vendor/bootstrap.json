@@ -1,0 +1,12 @@
+{
+  "assets": [
+    {
+      "name": "bootstrap",
+      "version": "3.3.5",
+      "type": "css",
+      "locations": {
+        "webjar": "3.3.5/css/bootstrap.min.css"
+      }
+    }
+  ]
+}

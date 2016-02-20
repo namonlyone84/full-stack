@@ -19,9 +19,6 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
  *
  * Along with Spring JPA, we can GET/POST/PUT/PATCH entities from data base by rest uri.
  * The returning entity is of JSON type and follows the HATEOAS format.
- * For example: with User entity and UserRepository declared, use this rest to access mapping entity User
- *         http://hostname:post/users
- *
  * Refer to http://projects.spring.io/spring-data-rest/ for more information
  */
 @Configuration
@@ -29,7 +26,12 @@ public class RestConfiguration extends RepositoryRestMvcConfiguration {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration repositoryRestConfiguration) {
-        repositoryRestConfiguration.setBaseUri("api");
+        repositoryRestConfiguration
+                .setSortParamName("sort")
+                .setPageParamName("offset")
+                .setLimitParamName("limit")
+                .setBaseUri("rest");
+
         // Expose the ID property on returning json
         repositoryRestConfiguration.exposeIdsFor(Company.class, Owner.class, OwnerCompany.class);
         repositoryRestConfiguration.setReturnBodyOnCreate(true);

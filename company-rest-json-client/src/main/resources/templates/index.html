@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:ddl="http://github.com/dandelion" ddl:bundle-includes="app">
+<head>
+    <title>Company Admin Client</title>
+    <base href="/"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+</head>
+<body ng-app="companyAdminApp">
+    <!-- Header -->
+    <div ui-view="header"></div>
+    <!--Content-->
+    <div class="wrapper" perfect-scrollbar="">
+        <div ui-view=""></div>
+    </div>
+</body>
+</html>

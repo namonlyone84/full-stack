@@ -38,6 +38,9 @@ public class Company {
     @Column(name = "com_email")
     private String email;
 
+    @Column(name = "com_phone")
+    private String phone;
+
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OwnerCompany> beneficialOwners;
+    private List<OwnerCompany> ownerCompanies;
 }

@@ -1,4 +1,4 @@
-package management.security.authentication;
+package management.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;

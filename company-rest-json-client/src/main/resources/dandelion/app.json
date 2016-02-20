@@ -1,0 +1,101 @@
+{
+  "dependencies": [
+    "bootstrap",
+    "angular",
+    "font-awesome",
+    "font-opensans",
+    "angular-ui-bootstrap"
+  ],
+  "assets": [
+    {
+      "locations": {
+        "classpath": "static/css/fs-common.css"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/app.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/routes.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/controllers/companyCtrl.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/controllers/ownerCtrl.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/controllers/notificationCtrl.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/controllers/headerCtrl.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/controllers/listCtrl.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/const.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/modalService.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/notificationService.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/spinService.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/baseFactory.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/companyFactory.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/ownerFactory.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/ownerCompanyFactory.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/directives/emptyToNull.js"
+      }
+    },
+    {
+      "locations": {
+        "classpath": "static/js/services/commonService.js"
+      }
+    }
+  ]
+}

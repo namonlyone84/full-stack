@@ -1,0 +1,23 @@
+{
+  "bundle": "angular-ui-bootstrap",
+  "dependencies": [
+    "bootstrap",
+    "angular"
+  ],
+  "assets": [
+    {
+      "version": "0.13.3",
+      "type": "js",
+      "locations": {
+        "webjar": "ui-bootstrap.min.js"
+      }
+    },
+    {
+      "version": "0.13.3",
+      "type": "js",
+      "locations": {
+        "webjar": "ui-bootstrap-tpls.min.js"
+      }
+    }
+  ]
+}

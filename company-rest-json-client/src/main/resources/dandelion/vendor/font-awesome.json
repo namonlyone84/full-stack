@@ -1,0 +1,12 @@
+{
+  "assets": [
+    {
+      "name": "font-awesome",
+      "version": "4.4.0",
+      "type": "css",
+      "locations": {
+        "webjar": "font-awesome.min.css"
+      }
+    }
+  ]
+}

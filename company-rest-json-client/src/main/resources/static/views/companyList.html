@@ -1,0 +1,22 @@
+<div class="col-md-12" ng-show="!inProgress">
+    <fieldset class="fs-form-container fs-company-list">
+        <legend class="legend">Company List</legend>
+
+        <a id="btn-add-entity" title="Add new company" class="btn btn-default pull-right" type="button"
+           ng-click="addNew()">
+            <i class="fa fa-plus"></i>
+        </a>
+
+        <table ng-table="entitiesTable" class="table table table-condensed table-bordered table-striped">
+            <tr ng-repeat="company in $data" class="row-hover" ng-click="edit(company.id)">
+                <td width="10%" data-title="'Unique ID'" sortable="'id'" filter="{id: 'text'}">{{company.id}}</td>
+                <td width="15%" data-title="'Name'" sortable="'name'" filter="{name: 'text'}">{{company.name}}</td>
+                <td width="15%" data-title="'Address'" sortable="'address'" filter="{address: 'text'}">{{company.address}}</td>
+                <td width="15%" data-title="'City'" sortable="'city'" filter="{city: 'text'}">{{company.city}}</td>
+                <td width="15%" data-title="'Country'" sortable="'country'" filter="{country: 'text'}">{{company.country}}</td>
+                <td width="10%" data-title="'Email'" sortable="'email'" filter="{email: 'text'}">{{company.email}}</td>
+                <td width="10%" data-title="'Phone'" sortable="'phone'" filter="{phone: 'number'}">{{company.phone}}</td>
+            </tr>
+        </table>
+    </fieldset>
+</div>

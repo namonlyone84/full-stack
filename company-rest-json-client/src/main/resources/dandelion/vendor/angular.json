@@ -1,0 +1,124 @@
+{
+  "bundle": "angular",
+  "assets": [
+    {
+      "version": "1.4.3-1",
+      "type": "js",
+      "locations": {
+        "webjar": "1.4.3-1/angular.min.js"
+      }
+    },
+    {
+      "version": "0.2.15",
+      "type": "js",
+      "locations": {
+        "webjar": "angular-ui-router.min.js"
+      }
+    },
+    {
+      "version": "1.4.3-1",
+      "type": "js",
+      "locations": {
+        "webjar": "angular-sanitize.min.js"
+      }
+    },
+    {
+      "version": "0.7.1",
+      "type": "js",
+      "locations": {
+        "webjar": "loading-bar.min.js"
+      }
+    },
+    {
+      "version": "0.7.1",
+      "type": "css",
+      "locations": {
+        "webjar": "loading-bar.min.css"
+      }
+    },
+    {
+      "version": "0.6.4",
+      "type": "js",
+      "locations": {
+        "webjar": "perfect-scrollbar.js"
+      }
+    },
+    {
+      "version": "0.6.4",
+      "type": "css",
+      "locations": {
+        "webjar": "perfect-scrollbar.min.css"
+      }
+    },
+    {
+      "version": "0.7.1",
+      "type": "js",
+      "locations": {
+        "webjar": "angular-perfect-scrollbar.js"
+      }
+    },
+    {
+      "version": "0.0.38",
+      "type": "js",
+      "locations": {
+        "webjar": "angucomplete-alt.min.js"
+      }
+    },
+    {
+      "version": "0.0.38",
+      "type": "css",
+      "locations": {
+        "webjar": "angucomplete-alt.css"
+      }
+    },
+    {
+      "version": "0.2.3",
+      "type": "js",
+      "locations": {
+        "webjar": "ng-lodash.min.js"
+      }
+    },
+    {
+      "version": "1.4.3-1",
+      "type": "js",
+      "locations": {
+        "webjar": "1.4.3-1/angular-resource.min.js"
+      }
+    },
+    {
+      "version": "0.4.2",
+      "type": "js",
+      "locations": {
+        "webjar": "angular-spring-data-rest.min.js"
+      }
+    },
+    {
+      "version": "1.3.0",
+      "type": "js",
+      "locations": {
+        "webjar": "spin.min.js"
+      }
+    },
+    {
+      "version": "0.6.1",
+      "type": "js",
+      "locations": {
+        "webjar": "angular-spinner.min.js"
+      }
+    },
+    {
+      "version": "1.0.0-beta.9",
+      "type": "js",
+      "locations": {
+        "webjar": "ng-table.min.js"
+      }
+    },
+    {
+      "version": "1.0.0-beta.9",
+      "type": "css",
+      "locations": {
+        "webjar": "ng-table.min.css"
+      }
+    }
+  ]
+}

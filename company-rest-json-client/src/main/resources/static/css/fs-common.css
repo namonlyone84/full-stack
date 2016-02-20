@@ -1,0 +1,404 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: OpenSansLight, Arial, Helvetica, sans-serif;
+    padding-top: 50px;
+    padding-bottom: 51px;
+}
+
+.wrapper {
+    padding: 20px 0;
+}
+
+.header, .footer {
+    font-family: OpenSansRegular, Arial, Helvetica, sans-serif;
+}
+
+.header {
+    background-color: #195B7F;
+}
+
+.fs-header-menu-box:hover {
+    background: #006a9f;
+}
+
+.fs-header-menu-box .active {
+    background: #0091CF !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF !important;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.btn-logout {
+    margin-right: 15px;
+}
+
+.has-feedback .form-control-feedback {
+    z-index: 3;
+}
+
+#search-input .form-control {
+    border-radius: 0;
+}
+
+#search-input .angucomplete-dropdown {
+    width: 100%;
+    top: 41px;
+    word-wrap: break-word;
+}
+
+#search-input .angucomplete-selected-row {
+    background-color: #195B7F;
+}
+
+#search-input .angucomplete-description {
+    font-size: 12px;
+    color: #999999;
+}
+
+#search-input .angucomplete-selected-row .angucomplete-description {
+    color: #fff;
+}
+
+.wrapper {
+    position: relative;
+    height: 100%;
+}
+
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+    display: none !important;
+}
+
+.fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 5px;
+}
+
+.legend {
+    width: auto;
+    border: 0;
+    padding: 0 5px;
+    margin-bottom: 0;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 300px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.control-label {
+    font-weight: normal;
+    text-align: left !important;
+}
+
+.fs-form-container {
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+}
+
+.fs-form-container h3 {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.fs-company {
+    height: 487px;
+}
+
+.fs-form-container .full-stack-form .control-label {
+    text-align: left;
+}
+
+.fs-form-container .fs-disabled {
+    cursor: default;
+}
+
+.fs-form-container .fs-form-submit {
+    padding: 0 15px;
+}
+
+.fs-form-container .fs-list-company-form {
+    height: 92%;
+    overflow: hidden;
+}
+
+.fs-form-container .fs-list-company-container {
+    float: left;
+    width: 45%;
+    height: 97%;
+}
+
+.fs-form-container .fs-list-company-container h4 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.fs-form-container .fs-list-company-action {
+    text-align: center;
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+
+.fs-form-container .fs-list-company-action span:first-child {
+    height: 100%;
+}
+
+.fs-form-container .fs-list-company-action span {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.fs-form-container .fs-list-company-action span i {
+    cursor: pointer;
+}
+
+.fs-form-container .fs-list-company-action img {
+    height: 100%;
+}
+
+.fs-form-container .fs-list-company {
+    border: 1px solid #ddd;
+    height: 90%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    width: 100%;
+}
+
+.fs-form-container .fs-list-company select {
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    width: calc(100% + 20px);
+}
+
+.fs-form-container .dropdown-menu table:focus,
+.fs-form-container .fs-list-company select:focus {
+    outline: 0;
+}
+
+.fs-form-container .fs-list-company select option {
+    padding: 5px 30px 5px 10px;
+}
+
+.ps-container > .ps-scrollbar-y-rail {
+    opacity: 1 !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    width: 5px !important;
+}
+
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    width: 5px !important;
+    border-radius: 0 !important;
+}
+
+.fs-form-container .fs-list-company .ps-scrollbar-y-rail {
+    right: 0 !important;
+}
+
+.fs-form-container .form-control[readonly] {
+    background-color: #fff;
+}
+
+.fs-form-container .input-group {
+    margin: 0;
+}
+
+.fs-form-container .tooltip.right {
+    white-space: nowrap;
+}
+
+.fs-form-container .tooltip-inner {
+    padding: 10px;
+}
+
+.fs-form-container .fs-linked-companies {
+    height: 87%;
+}
+
+.fs-form-container .fs-linked-companies li {
+    padding-bottom: 5px;
+}
+
+.fs-linked-companies-container {
+    height: 340px;
+}
+
+.fs-company {
+    height: 487px;
+}
+
+#loading-bar .bar {
+    background-color: #0091CF;
+}
+
+#search-input input {
+    width: 250px;
+}
+
+.fs-notification-container {
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    text-align: center;
+}
+
+.fs-notification-container div {
+    display: inline-block;
+}
+
+.tooltip-inner {
+    max-width: 300px;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.fs-main-content {
+    position: relative;
+}
+
+.fs-blanket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.fs-blanket .fs-spinner {
+    margin-top: 200px;
+    position: relative;
+    z-index: 1100;
+}
+
+.spinner {
+    top: 50% !important;
+    left: 50% !important;
+}
+
+.logout-message {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+}
+
+#btn-unlock {
+    margin-right: 10px;
+}
+
+.fs-list-filter {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 4px 24px 4px 10px;
+    font-size: 14px;
+}
+
+.fs-list-filter-container {
+    height: 35px;
+}
+
+.info-modal .modal-dialog {
+    width: 520px;
+    margin-top: 200px;
+}
+
+.info-modal .modal-dialog .input-info-title {
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-modal .modal-dialog .modal-content {
+    padding: 20px;
+}
+
+.info-modal .modal-dialog .button-group {
+    text-align: right;
+}
+
+.info-modal .modal-dialog .button-group .btn {
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.info-modal .modal-dialog .customer-reference {
+    padding-top: 0px;
+}
+
+.fs-list-filter::-ms-clear {
+    display: none;
+}
+
+.table .header {
+    background: white;
+}
+
+.table .action i {
+    margin: 0 2px;
+}
+
+.table > tbody > tr > td {
+    word-break: break-all;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.filter-cell {
+    position: relative;
+}
+
+.filter-cell .input-filter {
+    padding-right: 18px;
+}
+
+.filter-cell i {
+    width: 20px;
+}
+
+.row-hover:hover, .row-action:hover td:not(:last-child) {
+    cursor: pointer;
+    background-color: #b0c4de !important;
+}
+
+.delete-modal .modal-dialog {
+    width: 300px;
+    margin-top: 200px;
+}
+
+.delete-modal .modal-footer {
+    border: 0;
+    padding-top: 0;
+}
+
+.fs-login-input {
+    display: inline-block !important;
+    width: auto !important;
+}
+
+#btn-add-entity {
+    margin: -10px 0 10px 0;
+}

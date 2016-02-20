@@ -6,7 +6,16 @@ logging:
 #    org.springframework.web: DEBUG
 #    org.springframework.jdbc: DEBUG
 
+security:
+   basic:
+       enabled: false
+management:
+   security:
+       enabled: false
+
+---
 spring:
+   profiles: dev
    datasource:
        driver-class-name: org.postgresql.Driver
        url: jdbc:postgresql://localhost:5432/postgres
@@ -18,7 +27,10 @@ server:
 spring:
     profiles: heroku
     datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://ec2-54-204-30-115.compute-1.amazonaws.com:5432/d9i9l5i86lina0
-        username: jijilfkbywijtw
-        password: ZnNbcTsX3bgzPSeVf4jghqEo6v
+        url: ${DATABASE_URL}
+        driverClassName: org.postgresql.Driver
+        maxActive: 10
+        maxIdle: 5
+        minIdle: 2
+        initialSize: 5
+        removeAbandoned: true

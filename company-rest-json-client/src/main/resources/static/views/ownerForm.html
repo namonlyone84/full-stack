@@ -1,0 +1,37 @@
+<div class="col-md-6">
+    <form class="form-horizontal fs-company-form" novalidate ng-submit="ownerForm.$valid && submit()" name="ownerForm">
+        <fieldset class="fs-form-container">
+            <legend class="legend">{{legend}}</legend>
+
+            <div class="form-group"
+                 ng-class="{'has-error' : (ownerForm.$submitted || ownerForm.name.$touched) && ownerForm.name.$invalid}">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-9">
+                    <input id="name" class="form-control" name="name" placeholder="Required" maxlength="50" ng-model="ownerModel.name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button id="btn-submit" type="submit" class="btn btn-primary pull-right" ng-disabled="posting && inProgress">
+                        {{isEditing ? 'Save' : 'Create'}}
+                    </button>
+                    <button id="btn-delete" type="button" class="btn btn-danger pull-left" ng-disabled="posting && inProgress"
+                            ng-click="delete()" ng-if="isEditing">Delete
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+        </fieldset>
+    </form>
+</div>
+<div class="col-xs-6">
+    <fieldset class="fs-form-container fs-linked-companies-container">
+        <legend class="legend">Owning Companies</legend>
+        <ul class="fs-linked-companies" perfect-scrollbar suppress-scroll-x="true">
+            <li ng-repeat="company in ownedCompanies | orderBy:'name' track by company.id">
+                {{company.name}}
+            </li>
+        </ul>
+    </fieldset>
+</div>

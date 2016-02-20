@@ -1,0 +1,31 @@
+<!-- Content -->
+<section class="fs-main">
+    <div class="container fs-main-content">
+        <div class="row">
+            <div ui-view></div>
+        </div>
+        <!-- spinner -->
+        <div class="fs-blanket" ng-show="spinnerActive">
+            <div class="fs-spinner">
+                <span us-spinner="{radius:14, width:4, length: 7, position: 'absolute' }" spinner-key="spinner"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="fs-notification-container" ng-controller="NotificationCtrl">
+    <alert ng-if="!closed" id="alert" type="{{type}}" close="close()" dismiss-on-timeout="3000">
+        {{message}}
+    </alert>
+</div>
+
+<!-- Footer -->
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="col-md-12 text-center navbar-text">
+                Copyright &copy; 2016 <a href="https://vn.linkedin.com/in/nam-le-hong-04085487" target="_blank">Le Hong Nam</a>
+            </div>
+        </div>
+    </nav>
+</footer>

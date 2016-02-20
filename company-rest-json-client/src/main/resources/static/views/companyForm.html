@@ -1,0 +1,125 @@
+<div class="col-xs-6">
+    <form class=form-horizontal name="companyForm" novalidate ng-submit="submit()">
+        <fieldset class="fs-form-container fs-company">
+            <legend class="legend">{{legend}}</legend>
+
+            <div class="form-group" ng-class="{'has-error' : (companyForm.$submitted || companyForm.name.$touched) && companyForm.name.$invalid}">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-9">
+                    <input id="name" class="form-control" name="name" placeholder="Required" ng-model="companyModel.name" maxlength="50" required/>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error' : (companyForm.$submitted || companyForm.address.$touched) && companyForm.address.$invalid}">
+                <label class="col-xs-3 control-label">Address</label>
+                <div class="col-xs-9">
+                    <input id="address" class="form-control" name="address" placeholder="Required" ng-model="companyModel.address" maxlength="50" required/>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error' : (companyForm.$submitted || companyForm.city.$touched) && companyForm.city.$invalid}">
+                <label class="col-xs-3 control-label">City</label>
+                <div class="col-xs-9">
+                    <input id="city" class="form-control" name="city" placeholder="Required" ng-model="companyModel.city" maxlength="50" required/>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error' : (companyForm.$submitted || companyForm.country.$touched) && companyForm.country.$invalid}">
+                <label class="col-xs-3 control-label">Country</label>
+                <div class="col-xs-9">
+                    <input id="country" class="form-control" name="country" placeholder="Required" ng-model="companyModel.country" maxlength="50" required/>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': (companyForm.$submitted || companyForm.email.$touched) && companyForm.email.$error.pattern}">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" ng-model="companyModel.email" name="email" class="form-control" id="email" maxlength="80"
+                           ng-blur="!isEditing && checkEmail()"
+                           ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" ng-readonly="isEditing"
+                           tooltip="{{tooltipForEmail}}"
+                           tooltip-placement="right"
+                           tooltip-enable="companyForm.email.$error.pattern"
+                           empty-to-null>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Phone</label>
+                <div class="col-xs-9">
+                    <input id="phone" type="text" class="form-control" name="phone" ng-model="companyModel.phone" maxlength="50" empty-to-null/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <button id="btn-delete" type=button class="btn btn-danger pull-left" ng-disabled="posting" ng-click="deleteCompany()" ng-if="editMode">Delete</button>
+                </div>
+
+                <div class="col-xs-6">
+                    <button id="btn-submit" type=submit class="btn btn-primary pull-right" ng-disabled="posting">{{editMode? 'Save' : 'Create'}}</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="col-xs-6" name="companyOwners" ng-disabled="editMode">
+    <fieldset class="fs-form-container fs-company">
+        <legend class="legend">Beneficial owners</legend>
+
+        <div class="fs-list-company-form">
+            <div class="fs-list-company-container">
+                <div class="fs-list-filter-container has-feedback">
+                    <input type="text" ng-model="searchOwners" class="fs-list-filter" placeholder="Filter for Assignable Owners">
+                    <i class="glyphicon glyphicon-filter form-control-feedback"></i>
+                </div>
+
+                <div id="assignable-owners" class="fs-list-company" perfect-scrollbar suppress-scroll-x="true">
+                    <select multiple data-ng-attr-size="{{assignableOwners.length}}" ng-model="addSelectedOwners" ng-change="removeSelectedOwners = []">
+                        <option ng-repeat="owner in assignableOwners | filter: searchOwners | orderBy: 'name' track by owner.id"
+                                value="{{owner.id}}"
+                                id="{{owner.id}}"
+                                label="{{getOwnerName(owner)}}"
+                                title="{{getOwnerName(owner)}}"
+                                name="{{owner.id}}">
+                            {{getOwnerName(owner)}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fs-list-company-action">
+                <span></span>
+                <span>
+                    <i class="fa fa-2x fa-chevron-circle-right" ng-style="{opacity: addSelectedOwners.length > 0 ? 1 : 0.5, cursor: addSelectedOwners.length > 0 ? 'pointer' : 'default'}"
+                       ng-click="!posting && addSelectedOwners.length > 0 && addOwners()" id="btn-assign"></i><br/>
+                    <i class="fa fa-2x fa-chevron-circle-left" ng-style="{opacity: removeSelectedOwners.length > 0 ? 1 : 0.5, cursor: removeSelectedOwners.length > 0 ? 'pointer' : 'default'}"
+                       ng-click="!posting && removeSelectedOwners.length > 0 && removeOwners()" id="btn-remove"></i>
+                </span>
+            </div>
+
+            <div class="fs-list-company-container">
+                <div class="fs-list-filter-container has-feedback">
+                    <input type="text" ng-model="searchAssignedOwners" class="fs-list-filter" placeholder="Filter by Assigned Owners">
+                    <i class="glyphicon glyphicon-filter form-control-feedback"></i>
+                </div>
+
+                <div id="assigned-owners" class="fs-list-company" perfect-scrollbar suppress-scroll-x="true">
+                    <select multiple data-ng-attr-size="{{assignedOwners.length}}"
+                            ng-model="removeSelectedOwners"
+                            ng-change="addSelectedOwners = []">
+                        <option ng-repeat="owner in assignedOwners | filter: searchAssignedOwners | orderBy:'name' track by owner.id"
+                                value="{{owner.id}}"
+                                id="{{owner.id}}"
+                                label="{{getOwnerName(owner)}}"
+                                title="{{getOwnerName(owner)}}"
+                                name="{{owner.id}}">
+                            {{getOwnerName(owner)}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>

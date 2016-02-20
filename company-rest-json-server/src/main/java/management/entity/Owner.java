@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(schema = "craft_beer", name = "role")
+@Table(schema = "full_stack", name = "owner")
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ownerIdSequence")
