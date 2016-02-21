@@ -1,1 +1,1 @@
-web:   java $JAVA_OPTS -Dserver.port=$PORT -jar company-rest-json-server/target/company-rest-json-server-1.0-SNAPSHOT.jar --spring.profiles.active=heroku
+web:   java $JAVA_OPTS -Dserver.port=$PORT -jar company-rest-json-client/target/company-rest-json-client-1.0-SNAPSHOT.jar --spring.profiles.active=heroku
