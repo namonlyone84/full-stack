@@ -19,7 +19,7 @@ spring:
    datasource:
        driver-class-name: org.postgresql.Driver
        url: jdbc:postgresql://localhost:5432/postgres
-       username: ${abc}
+       username: postgres
        password: postgres
        maxActive: 10
        maxIdle: 5
