@@ -1,5 +1,5 @@
 The assignment application contains two modules which are server REST service and client UI. Both of them have been deployed onto Heroku server and can be access via two URLs below:
-  - http://full-stack-dev-server.herokuapp.com/ for REST services server
+  - http://full-stack-dev-server.herokuapp.com/rest for REST services server
   - http://full-stack-dev-client.herokuapp.com/home for client UI
 
 # Technologies
@@ -76,4 +76,9 @@ curl -X POST -H "Content-Type: application/json" -u admin:admin -d '[
     {"companyId":6,"ownerId":11},
     {"companyId":6,"ownerId":10}
 ]' http://full-stack-dev-server.herokuapp.com/rest/ownerCompanies
+```
 
+### Using Client UI
+  - Open http://full-stack-dev-client.herokuapp.com/home to connect to client UI
+  - On the header of UI, enter the REST server host exactely as http://full-stack-dev-server.herokuapp.com and login with admin\admin credentials
+  - Start to discover the UI function.

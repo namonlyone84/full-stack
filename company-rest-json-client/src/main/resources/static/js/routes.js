@@ -62,7 +62,7 @@ angular.module('companyAdminApp')
                 })
                 .state('main.addOwner', {
                     url: '/owner/add',
-                    templateUrl: 'views/OwnerForm.html',
+                    templateUrl: 'views/ownerForm.html',
                     controller: 'OwnerCtrl',
                     data: {
                         searchEntity: searchEntities.Owner
@@ -70,7 +70,7 @@ angular.module('companyAdminApp')
                 })
                 .state('main.editOwner', {
                     url: '/owner/:id',
-                    templateUrl: 'views/OwnerForm.html',
+                    templateUrl: 'views/ownerForm.html',
                     controller: 'OwnerCtrl',
                     data: {
                         searchEntity: searchEntities.Owner
