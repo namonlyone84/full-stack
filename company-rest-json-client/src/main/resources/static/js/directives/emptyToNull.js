@@ -9,7 +9,6 @@ angular.module('companyAdminDirectives').directive('emptyToNull', function () {
                 if (viewValue === "") {
                     return null;
                 }
-
                 return viewValue;
             });
         }

@@ -19,15 +19,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
     }
 
-/*    private CsrfTokenRepository csrfTokenRepository() {
-        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-        repository.setHeaderName("X-XSRF-TOKEN");
-        return repository;
-    }*/
-
     @Autowired
-    protected void provideAuthenticationProvide(AuthenticationManagerBuilder auth) throws Exception {
-        auth
+    protected void provideAuthenticationProvide(AuthenticationManagerBuilder managerBuilder) throws Exception {
+        managerBuilder
                 .inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("USER");
     }

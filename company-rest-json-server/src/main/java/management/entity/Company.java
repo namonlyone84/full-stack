@@ -1,22 +1,26 @@
 package management.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
 @Table(schema = "full_stack", name = "company")
 public class Company {
+    public static final String COMPANY_FILTERING =
+            "SELECT com " +
+                    "FROM Company com " +
+                    "WHERE lower(coalesce(concat(com.id, ''), '')) LIKE :id " +
+                    "      AND lower(coalesce(com.name, '')) LIKE :name " +
+                    "      AND lower(coalesce(com.address, '')) LIKE :address " +
+                    "      AND lower(coalesce(com.city, '')) LIKE :city " +
+                    "      AND lower(coalesce(com.email, '')) LIKE :email " +
+                    "      AND lower(coalesce(com.country, '')) LIKE :country " +
+                    "      AND lower(coalesce(com.phone, '')) LIKE :phone";
+
     @Id
     @Column(name = "com_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companyIdSequence")
@@ -41,6 +45,7 @@ public class Company {
     @Column(name = "com_phone")
     private String phone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OwnerCompany> ownerCompanies;
 }

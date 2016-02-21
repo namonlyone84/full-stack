@@ -12,7 +12,7 @@ angular.module('companyAdminServices')
         CompanyFactory.prototype = new BaseFactory();
 
         CompanyFactory.prototype.getCompaniesByOwnerId = function (ownerId, successCallback, errorCallback, finallyCallback) {
-            $http.get(this.REST_URL + this.ENTITIES + "/search/findByOwnerId?ownerId=" + ownerId)
+            $http.get(this.REST_URL + this.ENTITIES + "/search/byOwnerId?ownerId=" + ownerId)
                 .then(function (res) {
                     successCallback && successCallback(res.data._embedded.companies);
                 }, function (data) {

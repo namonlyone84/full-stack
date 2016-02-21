@@ -15,10 +15,16 @@ import java.util.List;
 public interface CompanyRepository extends CrudRepository<Company, Long> {
 
     @Query("Select company from Company company")
-    Page<Company> listAllInPages(Pageable pageable);
+    Page<Company> offset(Pageable pageable);
 
     @Query(value = "Select c from Company c join c.ownerCompanies oc where oc.ownerId= :ownerId", nativeQuery = false)
-    List<Company> findByOwnerId(@Param("ownerId") Long ownerId);
+    List<Company> byOwnerId(@Param("ownerId") Long ownerId);
+
+    @Query(value = Company.COMPANY_FILTERING, nativeQuery = false)
+    Page<Company> byProperties(@Param("id") String id, @Param("name") String name,
+                                     @Param("address") String address, @Param("city") String city,
+                                     @Param("email") String email, @Param("country") String country,
+                                     @Param("phone") String phone, Pageable pageable);
 
     @Override
     @RestResource(exported = false)
@@ -27,4 +33,12 @@ public interface CompanyRepository extends CrudRepository<Company, Long> {
     @Override
     @RestResource(exported = false)
     void deleteAll();
+
+    @Override
+    @RestResource(exported = false)
+    List<Company> findAll();
+
+    @Override
+    @RestResource(exported = false)
+    List<Company> findAll(Iterable<Long> companies);
 }

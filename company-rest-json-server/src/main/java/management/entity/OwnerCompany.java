@@ -1,5 +1,6 @@
 package management.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,10 +21,12 @@ public class OwnerCompany {
     @Column(name = "owcom_owner_id")
     private long ownerId;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owcom_com_id", insertable = false, updatable = false)
     private Company company;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owcom_owner_id", insertable = false, updatable = false)
     private Owner owner;

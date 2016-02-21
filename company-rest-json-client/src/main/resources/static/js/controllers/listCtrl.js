@@ -14,7 +14,6 @@ angular.module('companyAdminControllers')
             $scope.messages = {
                 error: 'There was an error while trying to request server.'
             };
-            $scope.inProgress = true;
 
             $scope.entitiesTable = new NgTableParams({
                 page: 1,
@@ -29,7 +28,7 @@ angular.module('companyAdminControllers')
             };
 
             $scope.addNew = function () {
-                $state.go($scope.entity.addState, undefined , {reload: true});
+                $state.go($scope.entity.addState, undefined, {reload: true});
             };
 
             $scope.baseUrl = $rootScope.restServerHost + '/rest/' + $scope.entity.pluralName;
@@ -38,15 +37,16 @@ angular.module('companyAdminControllers')
                 var availableFilters = $scope.entity.filteringFields;
                 var filterParams = [];
 
-                availableFilters.forEach(function (property) {
-                    filterParams.push(property + '=' + (filters[property] ? '%' + filters[property].toLowerCase() + '%' : '%'));
+
+                _.each(filters, function (property, key) {
+                    filterParams.push(key + '=' + (property ? property.toLowerCase() : ''));
                 });
 
                 filterParams.push('offset=' + offset);
                 filterParams.push('limit=' + limit);
                 filterParams.push('s=' + sorting);
 
-                    return $scope.baseUrl + '/findByProperties?' + filterParams.join('&');
+                return $scope.baseUrl + '/search/byProperties?' + filterParams.join('&');
             }
 
             function getData($defer, params) {
@@ -73,10 +73,15 @@ angular.module('companyAdminControllers')
                         if (res.data._embedded) {
                             var entities = res.data._embedded[$scope.entity.pluralName];
                             $scope.entitiesTable.total(res.data.page.totalElements);
-                            $scope.inProgress = false;
 
                             if ($defer) {
                                 $defer.resolve(entities);
+                            }
+                        } else if (res.data && res.data.totalElements) {
+                            $scope.entitiesTable.total(res.data.totalElements);
+
+                            if ($defer) {
+                                $defer.resolve(res.data.content);
                             }
                         }
                     }, function () {
@@ -89,7 +94,7 @@ angular.module('companyAdminControllers')
             }
 
             function getDefaultUrl(offset, limit, sorting) {
-                return $scope.baseUrl + '/search/listAllInPages?offset=' + offset + '&limit=' + limit + '&sort=' + (sorting || getDefaultSort());
+                return $scope.baseUrl + '/search/offset?offset=' + offset + '&limit=' + limit + '&sort=' + (sorting || getDefaultSort());
             }
         }
     ]);

@@ -25,19 +25,19 @@ public class ApplicationConfiguration implements EmbeddedServletContainerCustomi
     @Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
+        CorsConfiguration corsConfig = new CorsConfiguration();
 
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("OPTIONS");
-        config.addAllowedMethod("HEAD");
-        config.addAllowedMethod("GET");
-        config.addAllowedMethod("PUT");
-        config.addAllowedMethod("POST");
-        config.addAllowedMethod("DELETE");
-        config.addAllowedMethod("PATCH");
-        source.registerCorsConfiguration("/**", config);
+        corsConfig.setAllowCredentials(true);
+        corsConfig.addAllowedOrigin("*");
+        corsConfig.addAllowedHeader("*");
+        corsConfig.addAllowedMethod("OPTIONS");
+        corsConfig.addAllowedMethod("HEAD");
+        corsConfig.addAllowedMethod("GET");
+        corsConfig.addAllowedMethod("PUT");
+        corsConfig.addAllowedMethod("POST");
+        corsConfig.addAllowedMethod("DELETE");
+        corsConfig.addAllowedMethod("PATCH");
+        source.registerCorsConfiguration("/**", corsConfig);
 
         final FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new CorsFilter(source));
         filterRegistrationBean.setOrder(0);
@@ -47,7 +47,6 @@ public class ApplicationConfiguration implements EmbeddedServletContainerCustomi
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-
 
         ((TomcatEmbeddedServletContainerFactory) configurableEmbeddedServletContainer).addContextCustomizers(new TomcatContextCustomizer() {
             @Override

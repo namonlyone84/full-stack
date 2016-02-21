@@ -16,8 +16,6 @@ angular.module('companyAdminControllers')
                 $scope.editState = searchEntity.editState;
                 $scope.searchUrl = searchEntity.searchUrl;
                 $scope.dataField = searchEntity.dataField;
-                $scope.dataTitleField = searchEntity.dataTitleField;
-                $scope.dataDescriptionField = searchEntity.dataDescriptionField;
                 $scope.modelName = searchEntity.modelName;
             };
 
@@ -25,7 +23,10 @@ angular.module('companyAdminControllers')
                 username: 'admin',
                 password: 'admin'
             };
-            $rootScope.restServerHost = 'http://localhost:18181';
+
+            if (!$rootScope.restServerHost) {
+                $rootScope.restServerHost = 'http://localhost:18181';
+            };
 
             $scope.initSearchEntity($state.current.data.searchEntity);
 
