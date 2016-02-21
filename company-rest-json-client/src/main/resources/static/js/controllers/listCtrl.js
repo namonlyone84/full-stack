@@ -10,10 +10,6 @@ angular.module('companyAdminControllers')
         'NgTableParams',
         'lodash',
         function ($http, $rootScope, $scope, $state, Notification, NgTableParams, _) {
-            if (!$rootScope.authenticated) {
-                /*$state.go('main.home');*/
-            }
-
             $scope.entity = $state.current.data.searchEntity;
             $scope.messages = {
                 error: 'There was an error while trying to request server.'
@@ -54,31 +50,34 @@ angular.module('companyAdminControllers')
             }
 
             function getData($defer, params) {
+                if ($rootScope.authenticated) {
+                    var offset = params.page() - 1;
+                    var limit = params.count();
+                    var sorting = !_.isEmpty(params.sorting()) ? _.keys(params.sorting())[0] + ',' + _.values(params.sorting())[0] : getDefaultSort();
+                    var url;
 
-                var offset = params.page() - 1;
-                var limit = params.count();
-                var sorting = !_.isEmpty(params.sorting()) ? _.keys(params.sorting())[0] + ',' + _.values(params.sorting())[0] : getDefaultSort();
-                var url;
+                    if (params.hasFilter()) {
+                        url = getUrlForFilters(params.filter(), offset, limit, sorting);
+                    } else {
+                        url = getDefaultUrl(offset, limit, sorting);
+                    }
 
-                if (params.hasFilter()) {
-                    url = getUrlForFilters(params.filter(), offset, limit, sorting);
-                } else {
-                    url = getDefaultUrl(offset, limit, sorting);
+                    url = encodeURI(url);
+                    fetchEntities(url, $defer);
                 }
-
-                url = encodeURI(url);
-                fetchEntities(url, $defer);
             }
 
             function fetchEntities(url, $defer) {
                 $http.get(url)
                     .then(function (res) {
-                        var entities = res.data._embedded[$scope.entity.pluralName];
-                        $scope.entitiesTable.total(res.data.page.totalElements);
-                        $scope.inProgress = false;
+                        if (res.data._embedded) {
+                            var entities = res.data._embedded[$scope.entity.pluralName];
+                            $scope.entitiesTable.total(res.data.page.totalElements);
+                            $scope.inProgress = false;
 
-                        if ($defer) {
-                            $defer.resolve(entities);
+                            if ($defer) {
+                                $defer.resolve(entities);
+                            }
                         }
                     }, function () {
                         Notification.notify($scope.messages.error, false);
