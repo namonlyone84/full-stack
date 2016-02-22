@@ -25,7 +25,7 @@ angular.module('companyAdminControllers')
             };
 
             if (!$rootScope.restServerHost) {
-                $rootScope.restServerHost = 'http://localhost:18181';
+                $rootScope.restServerHost = 'http://full-stack-dev-server.herokuapp.com';
             };
 
             $scope.initSearchEntity($state.current.data.searchEntity);
